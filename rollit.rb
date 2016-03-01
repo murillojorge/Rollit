@@ -4,11 +4,26 @@ class Array
     end
 end
 
-def roll
-	dice = "2d100"
-	match = /(?<a>\d+)[d](?<f>\d+)/.match(dice)
-	amount = match[1].to_i
-	faces = match[2].to_i  
-	roll = amount.times.collect { rand(1..faces) }
-	puts = 'Rolled ' + dice + ' and results are: ' + roll.to_s + ' | Total is: ' + roll.sum.to_s
+class Rollit
+	
+	attr_reader :dice, :amount, :faces
+	
+	def initialize(dice)
+		@dice = dice
+	end
+	
+	def regex
+		/(?<a>\d+)[d](?<f>\d+)/.match(dice)
+		@amount = amount
+		@faces = faces
+		amount = match[1].to_i
+		faces = match[2].to_i 
+	end
+	
+	def roll
+    	amount.times.collect { rand(1..faces) }
+  	end
 end
+
+#puts = 'Rolled ' + @dice + ' and results are: ' + roll + ' | Total is: ' + roll
+
