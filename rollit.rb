@@ -15,7 +15,7 @@ class Rollit
 	end
 	
 	def regex
-		/(?<amount>\d+)[d](?<faces>\d+)/.match(dice)
+		/(\d+)[d](\d+)/.match(dice)
 		amount = match[1].to_i
 		faces = match[2].to_i 
 	end
