@@ -6,25 +6,22 @@ end
 
 class Rollit
 	
-	attr_reader :dice, :amount, :faces
+	attr_reader :dice
 	
-	def initialize(dice, amount, faces)
+	def initialize(dice)
 		@dice = dice
-		@amount = amount
-		@faces = faces
-	end
-	
-	def regex
-		/(\d+)[d](\d+)/.match(dice)
-		amount = match[1].to_i
-		faces = match[2].to_i 
 	end
 	
 	def roll
-    	amount.times.collect { rand(1..faces) }
+		regex = /(\d+)[d](\d+)/.match(dice)
+		amount = regex[1].to_i
+		faces = regex[2].to_i
+    	rolling = amount.times.collect { rand(1..faces) }
+		total = rolling.sum
+		puts = 'Rolled ' + dice + ' and results are: ' + rolling.to_s + ' | Total is: ' + total.to_s
   	end
 	
 end
 
-#puts = 'Rolled ' + dice + ' and results are: ' + roll.to_s + ' | Total is: ' + roll.to_s
+
 
