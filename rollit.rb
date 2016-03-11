@@ -4,19 +4,8 @@ class Array
     end
 end
 
-<<<<<<< HEAD
-def roll
-	dice = "4d4"
-	match = /(\d+)[d](\d+)/.match(dice)
-	amount = match[1].to_i
-	faces = match[2].to_i  
-	roll = amount.times.collect { rand(1..faces) }
-	puts = 'Rolled ' + dice + ' and results are: ' + roll.to_s + ' | Total is: ' + roll.sum.to_s
-=======
 class Rollit
-	
 	attr_reader :dice
-	
 	def initialize(dice)
 		@dice = dice
 	end
@@ -29,8 +18,6 @@ class Rollit
 		total = rolling.sum
 		puts = 'Rolled ' + dice + ' and results are: ' + rolling.to_s + ' | Total is: ' + total.to_s
   	end
-	
->>>>>>> objects
 end
 
 
