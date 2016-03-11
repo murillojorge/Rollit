@@ -1,3 +1,7 @@
+require "rubygems"
+require "sinatra"
+
+
 class Array
     def sum
         self.inject{|memo,n| memo + n }
@@ -20,5 +24,8 @@ class Rollit
   	end
 end
 
+get "/" do
+	Rollit.new("3d6").roll
+end
 
 
